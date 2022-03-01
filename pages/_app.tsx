@@ -1,9 +1,9 @@
-import type { AppProps } from 'next/app'
-import { ThemeProvider } from 'styled-components';
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle } from '../styles/global-styles';
-import {theme} from '../styles/theme';
-import Layout from './layout';
+import { GlobalStyle } from "../styles/global-styles";
+import { theme } from "../styles/theme";
+import Layout from "./layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
-  )
+  );
 }
 
 export default MyApp;
