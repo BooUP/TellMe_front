@@ -1,30 +1,30 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { LOGIN, SIGN_UP } from "../../store/actions/actionTypes";
+import { moveLogin, moveSignUp } from "../../store/actions/login";
+import { RootState } from "../../store/reducers";
 
-interface Props {
-  pageName: string;
-  onClick: (pageName: string) => void;
-}
+export default function ButtonGroup() {
+  const dispatch = useDispatch();
+  const { mode } = useSelector((state: RootState) => state.loginPageMode);
+  const changeSignUp = () => {
+    dispatch(moveSignUp());
+  };
 
-export default function ButtonGroup({ pageName, onClick }: Props) {
-  console.log("pageName: ", pageName);
+  const changeLogin = () => {
+    dispatch(moveLogin());
+  };
+
   return (
-    <ButtonList activeBg={pageName}>
+    <ButtonList activeBg={mode}>
       <li>
-        <Button
-          type="button"
-          onClick={() => onClick("login")}
-          active={pageName === "login"}
-        >
+        <Button type="button" onClick={changeLogin} active={mode === LOGIN}>
           LOGIN
         </Button>
       </li>
       <li>
-        <Button
-          type="button"
-          onClick={() => onClick("sign in")}
-          active={pageName === "sign in"}
-        >
-          SIGN IN
+        <Button type="button" onClick={changeSignUp} active={mode === SIGN_UP}>
+          SIGN UP
         </Button>
       </li>
     </ButtonList>
@@ -42,7 +42,7 @@ const ButtonList = styled.ul<ActiveBg>`
   height: 100%;
   background: url("btn_login.png") no-repeat top right / 120px 100px;
   background-position: ${(props) =>
-    props.activeBg === "login"
+    props.activeBg === LOGIN
       ? "top calc(50% - 45px) right"
       : "bottom calc(50% - 35px) right"};
   transition: background 0.8s;

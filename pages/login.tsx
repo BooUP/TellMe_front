@@ -1,25 +1,23 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import ButtonGroup from "../components/login/ButtonGroup";
 import LoginForm from "../components/login/LoginForm";
 import SignInForm from "../components/login/SignInForm";
+import { LOGIN, SIGN_UP } from "../store/actions/actionTypes";
+import { RootState } from "../store/reducers";
 
 export default function Login() {
-  const [state, setState] = useState("login");
-
-  const handleClick = (page: string) => {
-    setState(page);
-  };
+  const { mode } = useSelector((state: RootState) => state.loginPageMode);
 
   return (
     <Content>
       <TabContent>
-        <ButtonGroup pageName={state} onClick={handleClick} />
+        <ButtonGroup />
       </TabContent>
       <FormContent>
-        {state === "login" && <LoginForm />}
-        {state === "sign in" && <SignInForm />}
+        {mode === LOGIN && <LoginForm />}
+        {mode === SIGN_UP && <SignInForm />}
       </FormContent>
     </Content>
   );
