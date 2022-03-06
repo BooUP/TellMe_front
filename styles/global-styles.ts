@@ -43,4 +43,7 @@ export const GlobalStyle = createGlobalStyle`
   fieldset {border:0;}
   input[type="checkbox"],
   input[type="radio"] {display:none;}
+
+  h1 {margin:0;}
+  .container {background:#FCECDD;min-height:calc(100vh - 110px);}
 `;
