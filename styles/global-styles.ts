@@ -3,8 +3,7 @@ import { normalize } from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
-  html,body {font-family:'Noto Sans KR', sans-serif; height:100%;width:100%;overflow:hidden;}
-  :lang(en) {font-family: "Poppins";}
+  html,body {font-family: 'Nanum Gothic', sans-serif; height:100%;width:100%;overflow:hidden;}
   * {margin:0; padding:0;-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;line-height:1;}
   *, ::after, ::before {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing: border-box;}
   body {color:#333; font-size:18px; line-height:18px;}
@@ -15,16 +14,18 @@ export const GlobalStyle = createGlobalStyle`
   table td img {vertical-align:middle;}
   a {display:inline-block;color:#333;}
   a:link,a:visited,a:active,a:hover {text-decoration:none;}
-  /* body,p,div,ul,li,dl,dt,dd,ol,fieldset,textarea,input,select,table,th,td,address,cite,h1,h2,h3,h4,h5,h6,strong,b,label {font-family:'Noto Sans KR', sans-serif;} */
   article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
-  input {vertical-align:middle; outline:none;font-size:18px;}
+
   input[type='email'],
   input[type='text'],
-  input[type='password'] {display:inline-block;width:100%;height:48px;border:none;border-radius:8px;color:#333;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto;}
+  input[type='password'] {display:inline-block;width:100%;height:48px;color:#333;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto;vertical-align:middle; border:0;outline: 0;border-bottom: 1px solid #ccc;}
   input[type='email']::placeholder,
   input[type='text']::placeholder,
   input[type='password']::placeholder {color:#494B56;}
-  select {display:inline-block;width:100%;height:48px;background:url('/images/button/btn_select.png') no-repeat center right 21px / 13px 8px #1A1A1A;border:none;border-radius:8px;color:#fff;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto; -webkit-appearance: none;-moz-appearance: none;}
+  input[type='email']:focus,
+  input[type='text']:focus,
+  input[type='password']:focus {border-color: #ff6701}
+  select {display:inline-block;width:100%;height:48px;background:url('/images/button/btn_select.png') no-repeat center right 21px / 13px 8px #1A1A1A;border:none;color:#fff;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto; -webkit-appearance: none;-moz-appearance: none;}
   textarea {display:inline-block;vertical-align:middle;width:100%;padding:8px 8px; border:solid 1px #cccccc;background-color:#fff;color:#333;outline:none;font-size:18px;}
   input[type='file'],
   input[type='image'],

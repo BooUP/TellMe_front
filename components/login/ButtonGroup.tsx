@@ -19,7 +19,7 @@ export default function ButtonGroup() {
     <ButtonList activeBg={mode}>
       <li>
         <Button type="button" onClick={changeLogin} active={mode === LOGIN}>
-          LOGIN
+          SIGN IN
         </Button>
       </li>
       <li>
@@ -52,7 +52,7 @@ interface ActiveButton {
   active: boolean;
 }
 const Button = styled.button<ActiveButton>`
-  font-size: 25px;
+  font-size: 22px;
   width: 120px;
   height: 80px;
   color: ${(props) => (props.active ? "red" : "#fff")};
