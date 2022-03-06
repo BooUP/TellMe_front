@@ -13,7 +13,7 @@ export default function Login() {
         <InputBox>
           <input type="password" placeholder="password" />
         </InputBox>
-        <SubmitButton type="submit">login</SubmitButton>
+        <SubmitButton type="submit">SIGN IN</SubmitButton>
       </Form>
     </FormArea>
   );
@@ -21,6 +21,8 @@ export default function Login() {
 
 const FormArea = styled.div`
   padding: 50px 50px;
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
 const LogoBox = styled.div`
@@ -29,13 +31,12 @@ const LogoBox = styled.div`
 `;
 
 const Form = styled.div`
-  margin-top: 50px;
+  margin-top: 100px;
 `;
 
 const InputBox = styled.div`
   margin-top: 20px;
   height: 50px;
-  border-bottom: 1px solid #ccc;
 `;
 
 const SubmitButton = styled.button`

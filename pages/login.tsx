@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import ButtonGroup from "../components/login/ButtonGroup";
 import LoginForm from "../components/login/LoginForm";
-import SignInForm from "../components/login/SignInForm";
+import SignUpForm from "../components/login/SignUpForm";
 import { LOGIN, SIGN_UP } from "../store/actions/actionTypes";
 import { RootState } from "../store/reducers";
 
@@ -17,7 +17,7 @@ export default function Login() {
       </TabContent>
       <FormContent>
         {mode === LOGIN && <LoginForm />}
-        {mode === SIGN_UP && <SignInForm />}
+        {mode === SIGN_UP && <SignUpForm />}
       </FormContent>
     </Content>
   );
