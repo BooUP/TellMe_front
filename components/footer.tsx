@@ -11,7 +11,7 @@ export default function Footer() {
 }
 
 const FooterWrap = styled.div`
-  height: 50px;
+  height: 80px;
 `;
 
 const InnerFooter = styled.div`

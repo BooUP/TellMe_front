@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { COLOR } from "../constants/themes";
 
 export default function Header() {
   return (
@@ -17,9 +18,13 @@ export default function Header() {
 }
 
 const HeaderWrap = styled.div`
-  height: 60px;
-  padding: 5px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 80px;
+  padding: 0 20px;
   background: #fff;
+  border-bottom: 1px solid ${COLOR.BEIGE};
 `;
 
 const InnerHeader = styled.header`
@@ -33,7 +38,7 @@ const LogoBox = styled.h1`
   justify-content: center;
   align-items: center;
   font-family: "Montserrat", sans-serif;
-  line-height: 50px;
+  line-height: 80px;
   color: #ff6701;
   cursor: pointer;
 `;
