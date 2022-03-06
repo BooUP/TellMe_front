@@ -3,16 +3,43 @@ import { normalize } from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
-  html {
-    box-sizing: border-box;
-    font-size: 16px;
-    min-width: 320px;
-  }
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-  * { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';}
-  a { cursor: pointer; text-decoration: none; }
+  html,body {font-family:'Noto Sans KR', sans-serif; height:100%;width:100%;overflow:hidden;}
+  :lang(en) {font-family: "Poppins";}
+  * {margin:0; padding:0;-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;line-height:1;}
+  *, ::after, ::before {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing: border-box;}
+  body {color:#333; font-size:18px; line-height:18px;}
+  ul,ol,li{list-style:none;}
+  img,hr{border:none;}
+  img	{display:inline-block;vertical-align:middle;width:100%;border:0px;}
+  table {border-collapse:collapse; border-spacing:0; width:100%;}
+  table td img {vertical-align:middle;}
+  a {display:inline-block;color:#333;}
+  a:link,a:visited,a:active,a:hover {text-decoration:none;}
+  /* body,p,div,ul,li,dl,dt,dd,ol,fieldset,textarea,input,select,table,th,td,address,cite,h1,h2,h3,h4,h5,h6,strong,b,label {font-family:'Noto Sans KR', sans-serif;} */
+  article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+  input {vertical-align:middle; outline:none;font-size:18px;}
+  input[type='email'],
+  input[type='text'],
+  input[type='password'] {display:inline-block;width:100%;height:48px;border:none;border-radius:8px;color:#333;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto;}
+  input[type='email']::placeholder,
+  input[type='text']::placeholder,
+  input[type='password']::placeholder {color:#494B56;}
+  select {display:inline-block;width:100%;height:48px;background:url('/images/button/btn_select.png') no-repeat center right 21px / 13px 8px #1A1A1A;border:none;border-radius:8px;color:#fff;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto; -webkit-appearance: none;-moz-appearance: none;}
+  textarea {display:inline-block;vertical-align:middle;width:100%;padding:8px 8px; border:solid 1px #cccccc;background-color:#fff;color:#333;outline:none;font-size:18px;}
+  input[type='file'],
+  input[type='image'],
+  input[type='reset'],
+  input[type='button'],
+  input[type='submit'] {cursor:pointer;}
+  input[type='text']::-ms-clear {display: none;}
+  input[type='password']::-ms-clear {display: none;}
+  button {border:0 none;background-color:transparent;cursor:pointer;outline:none;}
+  hr, caption {display:none;position:absolute; right:-9999px; top:-9999px;height:0;text-indent:-1000000000px;font-size:0;}
+  legend {position:absolute;height:0;font-size:0px;line-height:0;overflow:hidden;text-indent:-9999px;}
+  i,address,cite,em {font-style:normal;}
+  label {cursor:pointer;}
+  .cusor {cursor:pointer}
+  fieldset {border:0;}
+  input[type="checkbox"],
+  input[type="radio"] {display:none;}
 `;
