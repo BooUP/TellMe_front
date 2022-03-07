@@ -1,17 +1,25 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export default function Footer() {
   return (
     <FooterWrap>
-      <footer>
-        <p>Footer!!!!!</p>
-        <p>Footer!!!!!</p>
-        <p>Footer!!!!!</p>
-      </footer>
+      <InnerFooter>
+        <p>Copyright &copy;2022 BooUP. All Rights Reserved</p>
+      </InnerFooter>
     </FooterWrap>
-  )
+  );
 }
 
 const FooterWrap = styled.div`
-  height:100px;border-top:1px solid #000;font-size:20px;
+  height: 80px;
+`;
+
+const InnerFooter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 1440px;
+  font-size: 12px;
+  color: #999;
 `;

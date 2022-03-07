@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   html,body {font-family: 'Nanum Gothic', sans-serif; height:100%;width:100%;overflow:hidden;}
   * {margin:0; padding:0;-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;line-height:1;}
   *, ::after, ::before {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing: border-box;}
-  body {color:#333; font-size:18px; line-height:18px;}
+  body {color:#333; font-size:16px; line-height:18px;}
   ul,ol,li{list-style:none;}
   img,hr{border:none;}
   img	{display:inline-block;vertical-align:middle;width:100%;border:0px;}
@@ -43,4 +43,9 @@ export const GlobalStyle = createGlobalStyle`
   fieldset {border:0;}
   input[type="checkbox"],
   input[type="radio"] {display:none;}
+
+  h1 {margin:0;}
+  #__next {height:100%;}
+  #wrapper {height:100%;overflow:auto;}
+  .container {background:#FCECDD;min-height:calc(100vh - 170px);}
 `;
