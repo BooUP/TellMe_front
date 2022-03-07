@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
-import { COLOR } from "../constants/themes";
+
+import DotBadge from "../components/shared/badge/DotBadge";
+import ListIcon from "../components/shared/icon/ListIcon";
+import BarProgress from "../components/shared/progress/BarProgress";
+import TitleBox from "../components/shared/title/TitieBox";
+import { progressText } from "../uttils/survey_list";
 
 const results = [
   {
@@ -35,35 +41,31 @@ const results = [
   },
 ];
 export default function SurveyList() {
-  const progressText = (status: number) => {
-    if (status === 100) return "Done";
-    if (status === 0) return "Not Started";
-    return "In Progress";
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/login`);
   };
 
   return (
     <Content>
-      <TitleBox>
-        <Title>나의 설문 목록</Title>
-        <Button>설문추가</Button>
-      </TitleBox>
+      <TitleBox
+        title="나의 설문 목록"
+        buttonInfo={[{ text: "설문추가", onClick: handleClick }]}
+      />
       <List>
         {results &&
           results.map((item) => (
             <ListItem key={item.id}>
               <Link href={``}>
                 <Item>
-                  <ListIcon status={progressText(item.progress)}></ListIcon>
+                  <ListIcon status={progressText(item.progress)} />
                   <TextBox>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
                   </TextBox>
-                  <Progress number={item.progress}>
-                    progress{item.progress}
-                  </Progress>
-                  <Badge status={progressText(item.progress)}>
-                    {progressText(item.progress)}
-                  </Badge>
+                  <BarProgress number={item.progress} />
+                  <DotBadge status={progressText(item.progress)} />
                 </Item>
               </Link>
             </ListItem>
@@ -73,41 +75,9 @@ export default function SurveyList() {
   );
 }
 
-interface ProgressState {
-  status: string;
-}
-
-interface ProgressNumber {
-  number: number;
-}
-
 const Content = styled.div`
   max-width: 1440px;
   padding: 30px;
-`;
-
-const TitleBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 14px;
-  z-index: 20;
-`;
-
-const Title = styled.div`
-  font-size: 30px;
-  font-weight: 700;
-`;
-
-const Button = styled.button`
-  width: 200px;
-  height: 50px;
-  border-radius: 25px;
-  background: ${COLOR.CREAM_ORANGE};
-  font-size: 16px;
-  color: #fff;
-  font-weight: 700;
 `;
 
 const List = styled.div`
@@ -129,30 +99,6 @@ const Item = styled.div`
   padding: 20px;
 `;
 
-const ListIcon = styled.i<ProgressState>`
-  display: inline-block;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-  background: url("icon_list.png") no-repeat left center / 100%;
-  &:after {
-    content: "";
-    position: absolute;
-    right: 3px;
-    bottom: 4px;
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    background: ${(props) => {
-      if (props.status === "Done") return "#ccc";
-      if (props.status === "Not Started") return COLOR.BEIGE;
-      return COLOR.DACK_ORANGE;
-    }};
-    border-radius: 50%;
-  }
-`;
-
 const TextBox = styled.div`
   flex: 4;
   margin-right: 40px;
@@ -164,57 +110,5 @@ const TextBox = styled.div`
     margin-top: 10px;
     font-size: 14px;
     line-height: 20px;
-  }
-`;
-
-const Progress = styled.div<ProgressNumber>`
-  flex: 2;
-  position: relative;
-  width: 250px;
-  height: 10px;
-  margin-right: 40px;
-  background: #eee;
-  font-size: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: ${(props) => `${props.number}%`};
-    height: 10px;
-    background: ${(props) =>
-      props.number === 100 ? "#ccc" : COLOR.DACK_ORANGE};
-  }
-`;
-
-const Badge = styled.div<ProgressState>`
-  flex: 1;
-  position: relative;
-  max-width: 160px;
-  height: 40px;
-  padding: 0 20px 0 40px;
-  border: 1px solid #ccc;
-  border-radius: 20px 20px 0 20px;
-  margin-left: 20px;
-  line-height: 40px;
-  font-size: 14px;
-  font-weight: 700;
-  &:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: ${(props) => {
-      if (props.status === "Done") return "#ccc";
-      if (props.status === "Not Started") return COLOR.BEIGE;
-      return COLOR.DACK_ORANGE;
-    }};
   }
 `;
