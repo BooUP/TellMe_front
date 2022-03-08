@@ -25,10 +25,10 @@ const Icon = styled.i<Props>`
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: ${({ status }) => {
-      if (status === "Done") return "#ccc";
-      if (status === "Not Started") return COLOR.BEIGE;
-      return COLOR.DACK_ORANGE;
+    background: ${(props) => {
+      if (props.status === "Done") return "#ccc";
+      if (props.status === "Not Started") return props.theme.colors.beige;
+      return props.theme.colors.dack_orange;
     }};
     border-radius: 50%;
   }

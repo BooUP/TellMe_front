@@ -43,7 +43,7 @@ const SubmitButton = styled.button`
   width: 100%;
   height: 70px;
   margin-top: 30px;
-  background: #ff6701;
-  color: #fcecdd;
+  background: ${(props) => props.theme.colors.dack_orange};
+  color: ${(props) => props.theme.colors.beige};
   font-size: 20px;
 `;

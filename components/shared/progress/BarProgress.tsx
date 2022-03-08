@@ -27,7 +27,7 @@ const Progress = styled.div<Props>`
     top: 0;
     width: ${({ number }) => `${number}%`};
     height: 10px;
-    background: ${({ number }) =>
-      number === 100 ? "#ccc" : COLOR.DACK_ORANGE};
+    background: ${(props) =>
+      props.number === 100 ? "#ccc" : props.theme.colors.dack_orange};
   }
 `;
