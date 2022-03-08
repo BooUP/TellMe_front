@@ -55,6 +55,6 @@ const Button = styled.button<ActiveButton>`
   font-size: 22px;
   width: 120px;
   height: 80px;
-  color: ${(props) => (props.active ? "red" : "#fff")};
+  color: ${(props) => (props.active ? props.theme.colors.dack_orange : "#fff")};
   transition: color 0.8s;
 `;

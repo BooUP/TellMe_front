@@ -41,14 +41,14 @@ const FormArea = styled.div`
 const Title = styled.p`
   font-size: 35px;
   text-align: left;
-  color: #ff6701;
+  color: ${(props) => props.theme.colors.dack_orange};
 `;
 
 const SubTitle = styled.p`
   margin-top: 15px;
   font-size: 20px;
   text-align: left;
-  color: #ffc288;
+  color: ${(props) => props.theme.colors.light_orange};
 `;
 
 const Form = styled.div`
@@ -76,7 +76,7 @@ const SubmitButton = styled.button`
   width: 100%;
   height: 70px;
   margin-top: 30px;
-  background: #ff6701;
-  color: #fcecdd;
+  background: ${(props) => props.theme.colors.dack_orange};
+  color: ${(props) => props.theme.colors.beige};
   font-size: 20px;
 `;
