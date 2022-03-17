@@ -30,12 +30,25 @@ const Content = styled.div`
   height: 100vh;
 `;
 const TabContent = styled.div`
+  position: relative;
   width: 40%;
   height: 100%;
-  background: url("bg_login.jpeg") no-repeat center;
+  background-image: url("/images/bg_login.jpeg");
   background-size: cover;
+  & ::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to left, #fea82f 1%, transparent 99%);
+    z-index: 1;
+  }
 `;
 const FormContent = styled.div`
+  position: relative;
   width: 60%;
   height: 100%;
   text-align: center;

@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 interface Props {
+  type?: "button" | "submit" | "reset";
   value: string;
   color?: string;
   borderColor?: string;
   backgroundColor?: string;
-  onClick(): void;
+  onClick?(): void;
 }
 
 export default function Button({
+  type = "button",
   value,
   color = "#000",
   borderColor,
@@ -17,6 +19,7 @@ export default function Button({
 }: Props) {
   return (
     <ButtonStyle
+      type={type}
       onClick={onClick}
       color={color}
       borderColor={borderColor}
@@ -28,6 +31,7 @@ export default function Button({
 }
 
 interface StyleProps {
+  type: string;
   color: string;
   borderColor?: string;
   backgroundColor?: string;

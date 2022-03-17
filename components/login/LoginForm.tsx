@@ -4,7 +4,7 @@ export default function Login() {
   return (
     <FormArea>
       <LogoBox>
-        <img src="logo.png" alt="텔미로고" />
+        <img src="/images/logo.png" alt="텔미로고" />
       </LogoBox>
       <Form>
         <InputBox>
@@ -13,7 +13,9 @@ export default function Login() {
         <InputBox>
           <input type="password" placeholder="password" />
         </InputBox>
-        <SubmitButton type="submit">SIGN IN</SubmitButton>
+        <ButtonArea>
+          <SubmitButton type="submit">SIGN IN</SubmitButton>
+        </ButtonArea>
       </Form>
     </FormArea>
   );
@@ -39,11 +41,17 @@ const InputBox = styled.div`
   height: 50px;
 `;
 
+const ButtonArea = styled.div`
+  text-align: right;
+`;
+
 const SubmitButton = styled.button`
-  width: 100%;
-  height: 70px;
+  width: 200px;
+  height: 50px;
   margin-top: 30px;
+  border-radius: 50px;
   background: ${(props) => props.theme.colors.dack_orange};
   color: ${(props) => props.theme.colors.beige};
   font-size: 20px;
+  border: 1px solid #000;
 `;

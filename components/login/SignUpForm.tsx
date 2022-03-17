@@ -8,6 +8,7 @@ import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
 import { isError, isloading, isSuccess } from "../../store/actions/login";
 import { RootState } from "../../store/reducers";
 import { CheckRegexPattern, isEmpty } from "../../utils/login";
+import Loading from "../shared/loading/Loading";
 
 export default function SignUpForm() {
   const [values, setValues] = useState<any>({
@@ -23,6 +24,7 @@ export default function SignUpForm() {
   const dispatch = useDispatch();
   const router = useRouter();
 
+  // TODO: type check
   const emailInput: any = useRef();
   const nameInput: any = useRef();
   const passwordInput: any = useRef();
@@ -91,60 +93,65 @@ export default function SignUpForm() {
   };
 
   return (
-    <FormArea>
-      <Title>
-        Welcome to <strong>TellMe</strong>!
-      </Title>
-      <SubTitle>Create a new account</SubTitle>
-      <Form onSubmit={handleSubmit}>
-        <InputBox>
-          <input
-            type="text"
-            placeholder="email"
-            name="email"
-            onChange={handleChange}
-            ref={emailInput}
-          />
-        </InputBox>
-        {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+    <>
+      {loading && <Loading />}
+      <FormArea>
+        <Title>
+          Welcome to <strong>TellMe</strong>!
+        </Title>
+        <SubTitle>Create a new account</SubTitle>
+        <Form onSubmit={handleSubmit}>
+          <InputBox>
+            <input
+              type="text"
+              placeholder="email"
+              name="email"
+              onChange={handleChange}
+              ref={emailInput}
+            />
+          </InputBox>
+          {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
 
-        <InputBox>
-          <input
-            type="text"
-            placeholder="name"
-            name="name"
-            onChange={handleChange}
-            ref={nameInput}
-          />
-        </InputBox>
-        {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
-        <InputBox>
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            onChange={handleChange}
-            ref={passwordInput}
-          />
-        </InputBox>
-        {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
-        <InputBox>
-          <input
-            type="password"
-            placeholder="password"
-            name="passwordCheck"
-            onChange={handleChange}
-          />
-        </InputBox>
-        <EmailInfoText>
-          <Title>이메일 인증</Title>
-          <SubTitle>
-            작성한 이메일로 전송되는 메일을 통해 인증 후 사용 가능합니다.
-          </SubTitle>
-        </EmailInfoText>
-        <SubmitButton type="submit">SIGN UP</SubmitButton>
-      </Form>
-    </FormArea>
+          <InputBox>
+            <input
+              type="text"
+              placeholder="name"
+              name="name"
+              onChange={handleChange}
+              ref={nameInput}
+            />
+          </InputBox>
+          {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+          <InputBox>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              onChange={handleChange}
+              ref={passwordInput}
+            />
+          </InputBox>
+          {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
+          <InputBox>
+            <input
+              type="password"
+              placeholder="password"
+              name="passwordCheck"
+              onChange={handleChange}
+            />
+          </InputBox>
+          <EmailInfoText>
+            <Title>이메일 인증</Title>
+            <SubTitle>
+              작성한 이메일로 전송되는 메일을 통해 인증 후 사용 가능합니다.
+            </SubTitle>
+          </EmailInfoText>
+          <ButtonArea>
+            <SubmitButton type="submit">SIGN UP</SubmitButton>
+          </ButtonArea>
+        </Form>
+      </FormArea>
+    </>
   );
 }
 
@@ -189,13 +196,19 @@ const EmailInfoText = styled.div`
   }
 `;
 
+const ButtonArea = styled.div`
+  text-align: right;
+`;
+
 const SubmitButton = styled.button`
-  width: 100%;
-  height: 70px;
+  width: 200px;
+  height: 50px;
   margin-top: 30px;
+  border-radius: 50px;
   background: ${(props) => props.theme.colors.dack_orange};
   color: ${(props) => props.theme.colors.beige};
   font-size: 20px;
+  border: 1px solid #000;
 `;
 
 const ErrorMessage = styled.p`
