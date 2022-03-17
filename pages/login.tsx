@@ -8,7 +8,9 @@ import { LOGIN, SIGN_UP } from "../store/actions/actionTypes";
 import { RootState } from "../store/reducers";
 
 export default function Login() {
-  const { mode } = useSelector((state: RootState) => state.loginPageMode);
+  const { mode } = useSelector(
+    (state: RootState) => state.loginPageModeReducer
+  );
 
   return (
     <Content>

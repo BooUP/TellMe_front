@@ -6,7 +6,9 @@ import { RootState } from "../../store/reducers";
 
 export default function ButtonGroup() {
   const dispatch = useDispatch();
-  const { mode } = useSelector((state: RootState) => state.loginPageMode);
+  const { mode } = useSelector(
+    (state: RootState) => state.loginPageModeReducer
+  );
   const changeSignUp = () => {
     dispatch(moveSignUp());
   };

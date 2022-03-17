@@ -3,5 +3,14 @@ export interface ActionProps {
 }
 
 export interface LoginPageState {
-  mode: string;
+  loginMode: {
+    mode: string;
+  };
+  signUpForm: SignUpForm;
+}
+
+export interface SignUpForm {
+  email: string;
+  name: string;
+  password: string;
 }

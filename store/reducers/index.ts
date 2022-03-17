@@ -1,8 +1,14 @@
 import { combineReducers } from "redux";
-import loginPageMode from "./login";
+import {
+  loginPageModeReducer,
+  signUpReducer,
+  requestStateReducer,
+} from "./login";
 
 const rootReducer = combineReducers({
-  loginPageMode,
+  loginPageModeReducer,
+  signUpReducer,
+  requestStateReducer,
 });
 
 export default rootReducer;
