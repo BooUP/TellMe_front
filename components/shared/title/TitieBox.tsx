@@ -32,7 +32,7 @@ const TitleArea = styled.div`
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  top: 14px;
+  top: 19px;
   z-index: 20;
 `;
 
@@ -42,11 +42,11 @@ const Title = styled.div`
 `;
 
 const Button = styled.button`
-  width: 150px;
-  height: 50px;
+  width: 120px;
+  height: 40px;
   border-radius: 25px;
   background: ${COLOR.CREAM_ORANGE};
-  font-size: 16px;
+  font-size: 15px;
   color: #fff;
   font-weight: 700;
 `;

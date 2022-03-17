@@ -18,13 +18,16 @@ export const GlobalStyle = createGlobalStyle`
 
   input[type='email'],
   input[type='text'],
-  input[type='password'] {display:inline-block;width:100%;height:48px;color:#333;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto;vertical-align:middle; border:0;outline: 0;border-bottom: 1px solid #ccc;}
+  input[type='password'],
+  input[type="date"] {display:inline-block;width:100%;height:48px;padding:0 15px;color:#333;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto;vertical-align:middle; border:0;outline: 0;border-bottom: 1px solid #ccc;}
   input[type='email']::placeholder,
   input[type='text']::placeholder,
-  input[type='password']::placeholder {color:#494B56;}
+  input[type='password']::placeholder,
+  input[type='date']::placeholder {color:#494B56;}
   input[type='email']:focus,
   input[type='text']:focus,
-  input[type='password']:focus {border-color: #ff6701}
+  input[type='password']:focus,
+  input[type='date']:focus {border-color: #ff6701}
   select {display:inline-block;width:100%;height:48px;background:url('/images/button/btn_select.png') no-repeat center right 21px / 13px 8px #1A1A1A;border:none;color:#fff;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto; -webkit-appearance: none;-moz-appearance: none;}
   textarea {display:inline-block;vertical-align:middle;width:100%;padding:8px 8px; border:solid 1px #cccccc;background-color:#fff;color:#333;outline:none;font-size:18px;}
   input[type='file'],
