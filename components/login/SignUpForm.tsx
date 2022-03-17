@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -15,13 +15,31 @@ export default function SignUpForm() {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState<any>({
+    name: "",
+    email: "",
+    password: "",
+  });
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const emailInput: any = useRef();
+  const nameInput: any = useRef();
+  const passwordInput: any = useRef();
+
+  const passEmail: boolean = CheckRegexPattern(values.email, EMAIL_REGEX);
+  const passName: boolean = !isEmpty(values.name);
+  const passPassword: boolean = CheckRegexPattern(
+    values.password,
+    PASSWORD_REGEX
+  );
+  const passPasswordCheck: boolean = values.password === values.passwordCheck;
 
   // TODO: Create a loading screen
   const { loading } = useSelector(
     (state: RootState) => state.requestStateReducer
   );
+
   const callrequestSignUp = async () => {
     try {
       const result = await requestSignUp(values);
@@ -33,23 +51,43 @@ export default function SignUpForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    const passEmail: boolean = CheckRegexPattern(values.email, EMAIL_REGEX);
-    const passName: boolean = !isEmpty(values.name);
-    const passPassword: boolean =
-      CheckRegexPattern(values.password, PASSWORD_REGEX) &&
-      values.password === values.passwordCheck;
+  const errorOccurred = (name: string, errorMessage: string, ref: any) => {
+    setErrors({ ...errors, [name]: errorMessage });
+    ref.current.focus();
+  };
 
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(isloading());
-    if (passEmail && passName && passPassword) {
-      callrequestSignUp();
+
+    if (!passEmail) {
+      errorOccurred("email", "유효한 이메일이 아닙니다.", emailInput);
+      return;
     }
+    if (!passName) {
+      errorOccurred("name", "이름을 입력해 주세요.", nameInput);
+      return;
+    }
+    if (!passPassword) {
+      errorOccurred(
+        "password",
+        "영문, 숫자 조합의 8자 이상의 비밀번호가 맞는지 확인해주세요.",
+        passwordInput
+      );
+      return;
+    }
+    if (!passPasswordCheck) {
+      errorOccurred("password", "비밀번호가 일지하지 않습니다.", passwordInput);
+      return;
+    }
+
+    dispatch(isloading());
+    callrequestSignUp();
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
+    setErrors({ email: "", name: "", password: "" });
   };
 
   return (
@@ -65,24 +103,31 @@ export default function SignUpForm() {
             placeholder="email"
             name="email"
             onChange={handleChange}
+            ref={emailInput}
           />
         </InputBox>
+        {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+
         <InputBox>
           <input
             type="text"
             placeholder="name"
             name="name"
             onChange={handleChange}
+            ref={nameInput}
           />
         </InputBox>
+        {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
         <InputBox>
           <input
             type="password"
             placeholder="password"
             name="password"
             onChange={handleChange}
+            ref={passwordInput}
           />
         </InputBox>
+        {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
         <InputBox>
           <input
             type="password"
@@ -110,16 +155,16 @@ const FormArea = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 35px;
+  font-size: 36px;
   text-align: left;
-  color: ${(props) => props.theme.colors.dack_orange};
+  color: #000;
 `;
 
 const SubTitle = styled.p`
   margin-top: 15px;
   font-size: 20px;
   text-align: left;
-  color: ${(props) => props.theme.colors.light_orange};
+  color: #666;
 `;
 
 const Form = styled.form`
@@ -135,11 +180,12 @@ const EmailInfoText = styled.div`
   margin-top: 20px;
   text-align: left;
   ${Title} {
-    font-size: 13px;
+    font-size: 12px;
+    color: #666;
   }
   ${SubTitle} {
     margin-top: 8px;
-    font-size: 13px;
+    font-size: 12px;
   }
 `;
 
@@ -150,4 +196,11 @@ const SubmitButton = styled.button`
   background: ${(props) => props.theme.colors.dack_orange};
   color: ${(props) => props.theme.colors.beige};
   font-size: 20px;
+`;
+
+const ErrorMessage = styled.p`
+  margin-top: 6px;
+  color: ${(props) => props.theme.colors.dack_orange};
+  font-size: 12px;
+  text-align: left;
 `;
