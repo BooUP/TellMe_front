@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { requestSignUp } from "../../api/signUp";
+import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
 import { isError, isloading, isSuccess } from "../../store/actions/login";
 import { RootState } from "../../store/reducers";
+import { CheckRegexPattern, isEmpty } from "../../utils/login";
 
 export default function SignUpForm() {
   const [values, setValues] = useState<any>({
@@ -20,11 +22,7 @@ export default function SignUpForm() {
   const { loading } = useSelector(
     (state: RootState) => state.requestStateReducer
   );
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    dispatch(isloading());
-
+  const callrequestSignUp = async () => {
     try {
       const result = await requestSignUp(values);
       dispatch(isSuccess(result.data));
@@ -32,6 +30,20 @@ export default function SignUpForm() {
     } catch (error) {
       dispatch(isError(error));
       alert("회원가입에 실패하였습니다.");
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    const passEmail: boolean = CheckRegexPattern(values.email, EMAIL_REGEX);
+    const passName: boolean = !isEmpty(values.name);
+    const passPassword: boolean =
+      CheckRegexPattern(values.password, PASSWORD_REGEX) &&
+      values.password === values.passwordCheck;
+
+    e.preventDefault();
+    dispatch(isloading());
+    if (passEmail && passName && passPassword) {
+      callrequestSignUp();
     }
   };
 
@@ -71,14 +83,14 @@ export default function SignUpForm() {
             onChange={handleChange}
           />
         </InputBox>
-        {/* <InputBox>
+        <InputBox>
           <input
             type="password"
             placeholder="password"
             name="passwordCheck"
             onChange={handleChange}
           />
-        </InputBox> */}
+        </InputBox>
         <EmailInfoText>
           <Title>이메일 인증</Title>
           <SubTitle>
