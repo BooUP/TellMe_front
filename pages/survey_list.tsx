@@ -6,7 +6,7 @@ import DotBadge from "../components/shared/badge/DotBadge";
 import ListIcon from "../components/shared/icon/ListIcon";
 import BarProgress from "../components/shared/progress/BarProgress";
 import TitleBox from "../components/shared/title/TitieBox";
-import { progressText } from "../uttils/survey_list";
+import { progressText } from "../utils/survey_list";
 
 const results = [
   {

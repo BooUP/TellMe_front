@@ -8,5 +8,6 @@ export const theme: DefaultTheme = {
     cream_orange: "#fea82f",
     light_orange: "#ffc288",
     beige: "#fcecdd",
+    black: "#000",
   },
 };
