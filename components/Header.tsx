@@ -8,7 +8,7 @@ export default function Header() {
       <InnerHeader>
         <Link href="/login">
           <LogoBox>
-            <LogoImage src="logo.png" alt="텔미 로고" />
+            <LogoImage src="/images/logo.png" alt="텔미 로고" />
             TELL ME
           </LogoBox>
         </Link>
