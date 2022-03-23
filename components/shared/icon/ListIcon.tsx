@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { COLOR } from "../../../constants/themes";
-
 interface Props {
   status: string;
 }
@@ -16,7 +14,7 @@ const Icon = styled.i<Props>`
   width: 40px;
   height: 40px;
   margin-right: 20px;
-  background: url("icon_list.png") no-repeat left center / 100%;
+  background: url("/images/icon_list.png") no-repeat left center / 100%;
   &:after {
     content: "";
     position: absolute;

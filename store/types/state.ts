@@ -13,6 +13,7 @@ export interface SignUpForm {
   email: string;
   name: string;
   password: string;
+  passwordCheck?: string;
 }
 
 export interface SignInForm {

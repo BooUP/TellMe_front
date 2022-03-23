@@ -2,7 +2,7 @@ import axios from "axios";
 import { SignInForm, SignUpForm } from "../store/types/state";
 
 const Axios = axios.create({
-  baseURL: "/api",
+  baseURL: "/api/index",
   timeout: 3000,
 });
 

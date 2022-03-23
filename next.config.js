@@ -6,7 +6,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/signup",
+        source: "/api",
         destination: API_URL,
       },
     ];
