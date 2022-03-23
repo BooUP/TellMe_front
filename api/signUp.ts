@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SignUpForm } from "../store/types/state";
+import { SignInForm, SignUpForm } from "../store/types/state";
 
 const Axios = axios.create({
   baseURL: "/api",
@@ -8,4 +8,10 @@ const Axios = axios.create({
 
 export const requestSignUp = async (params: SignUpForm) => {
   return await Axios.post(`/signup`, params);
+};
+
+export const requestSignIn = async (params: SignInForm) => {
+  console.log(params);
+  return { data: "로그인 완료" };
+  // return await Axios.post(`/signin`, params);
 };

@@ -8,6 +8,7 @@ import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
 import { isError, isloading, isSuccess } from "../../store/actions/login";
 import { RootState } from "../../store/reducers";
 import { CheckRegexPattern, isEmpty } from "../../utils/login";
+import ErrorMessage from "../shared/form/ErrorMessage";
 import Loading from "../shared/loading/Loading";
 
 export default function SignUpForm() {
@@ -110,7 +111,7 @@ export default function SignUpForm() {
               ref={emailInput}
             />
           </InputBox>
-          {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+          {errors.email && <ErrorMessage message={errors.email} />}
 
           <InputBox>
             <input
@@ -121,7 +122,7 @@ export default function SignUpForm() {
               ref={nameInput}
             />
           </InputBox>
-          {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+          {errors.name && <ErrorMessage message={errors.name} />}
           <InputBox>
             <input
               type="password"
@@ -131,7 +132,7 @@ export default function SignUpForm() {
               ref={passwordInput}
             />
           </InputBox>
-          {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
+          {errors.password && <ErrorMessage message={errors.password} />}
           <InputBox>
             <input
               type="password"
@@ -209,11 +210,4 @@ const SubmitButton = styled.button`
   color: ${(props) => props.theme.colors.beige};
   font-size: 20px;
   border: 1px solid #000;
-`;
-
-const ErrorMessage = styled.p`
-  margin-top: 6px;
-  color: ${(props) => props.theme.colors.dack_orange};
-  font-size: 12px;
-  text-align: left;
 `;

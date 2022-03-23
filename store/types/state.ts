@@ -14,3 +14,8 @@ export interface SignUpForm {
   name: string;
   password: string;
 }
+
+export interface SignInForm {
+  email: string;
+  password: string;
+}
