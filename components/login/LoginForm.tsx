@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { requestSignIn } from "../../api/signUp";
+import { requestSignIn } from "../../api";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
 import { isError, isloading, isSuccess } from "../../store/actions/login";
 import { CheckRegexPattern } from "../../utils/login";

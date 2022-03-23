@@ -3,27 +3,33 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { requestSignUp } from "../../api/signUp";
+import { requestSignUp } from "../../api";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
-import { isError, isloading, isSuccess } from "../../store/actions/login";
+import {
+  isError,
+  isloading,
+  isSuccess,
+  setSignUpFormValues,
+} from "../../store/actions/login";
 import { RootState } from "../../store/reducers";
 import { CheckRegexPattern, isEmpty } from "../../utils/login";
 import ErrorMessage from "../shared/form/ErrorMessage";
 import Loading from "../shared/loading/Loading";
 
 export default function SignUpForm() {
-  const [values, setValues] = useState<any>({
-    name: "",
-    email: "",
-    password: "",
-  });
   const [errors, setErrors] = useState<any>({
     name: "",
     email: "",
     password: "",
   });
+
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const { loading } = useSelector(
+    (state: RootState) => state.requestStateReducer
+  );
+  const values = useSelector((state: RootState) => state.signUpValuesReducer);
 
   // TODO: type check
   const emailInput: any = useRef();
@@ -37,11 +43,6 @@ export default function SignUpForm() {
     PASSWORD_REGEX
   );
   const passPasswordCheck: boolean = values.password === values.passwordCheck;
-
-  // TODO: Create a loading screen
-  const { loading } = useSelector(
-    (state: RootState) => state.requestStateReducer
-  );
 
   const callrequestSignUp = async () => {
     try {
@@ -89,7 +90,8 @@ export default function SignUpForm() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
+
+    dispatch(setSignUpFormValues({ ...values, [name]: value }));
     setErrors({ email: "", name: "", password: "" });
   };
 

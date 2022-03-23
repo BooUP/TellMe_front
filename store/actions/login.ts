@@ -6,6 +6,7 @@ import {
   REQUEST_SIGN_UP,
   SIGN_UP,
   SUCCESS,
+  SIGN_UP_FORM_VALUES,
 } from "./actionTypes";
 
 export const moveLogin = () => {
@@ -38,4 +39,9 @@ export const isSuccess = (data: any) => ({
 export const isError = (error: any) => ({
   type: ERROR,
   error,
+});
+
+export const setSignUpFormValues = (values: SignUpForm) => ({
+  type: SIGN_UP_FORM_VALUES,
+  values,
 });

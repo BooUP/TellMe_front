@@ -1,9 +1,9 @@
 import { ActionProps, LoginPageState, SignUpForm } from "../types/state";
-import { LOGIN, REQUEST_SIGN_UP, SIGN_UP } from "../actions/actionTypes";
+import { LOGIN, SIGN_UP_FORM_VALUES, SIGN_UP } from "../actions/actionTypes";
 
 const initialState: LoginPageState = {
   loginMode: { mode: LOGIN },
-  signUpForm: { email: "", name: "", password: "" },
+  signUpForm: { email: "", name: "", password: "", passwordCheck: "" },
 };
 
 export const loginPageModeReducer = (
@@ -15,23 +15,6 @@ export const loginPageModeReducer = (
       return { ...state, mode: LOGIN };
     case SIGN_UP:
       return { ...state, mode: SIGN_UP };
-
-    default:
-      return state;
-  }
-};
-
-//TODO: Remove when not in use
-export const signUpReducer = (
-  state = initialState.signUpForm,
-  action: {
-    type: string;
-    payload: SignUpForm;
-  }
-) => {
-  switch (action.type) {
-    case REQUEST_SIGN_UP:
-      return { result: action.payload };
 
     default:
       return state;
@@ -70,6 +53,18 @@ export const requestStateReducer = (
         data: null,
         error: action.error,
       };
+    default:
+      return state;
+  }
+};
+
+export const signUpValuesReducer = (
+  state = initialState.signUpForm,
+  action: { type: string; values: SignUpForm }
+) => {
+  switch (action.type) {
+    case SIGN_UP_FORM_VALUES:
+      return action.values;
     default:
       return state;
   }

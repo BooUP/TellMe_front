@@ -77,6 +77,7 @@ export default function SurveyList() {
 
 const Content = styled.div`
   max-width: 1440px;
+  margin: 0 auto;
   padding: 30px;
 `;
 
