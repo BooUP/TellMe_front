@@ -1,9 +1,20 @@
-import { ActionProps, LoginPageState, SignUpForm } from "../types/state";
-import { LOGIN, SIGN_UP_FORM_VALUES, SIGN_UP } from "../actions/actionTypes";
+import {
+  ActionProps,
+  LoginPageState,
+  SignInForm,
+  SignUpForm,
+} from "../types/state";
+import {
+  LOGIN,
+  SIGN_UP_FORM_VALUES,
+  SIGN_UP,
+  SIGN_IN_FORM_VALUES,
+} from "../actions/actionTypes";
 
 const initialState: LoginPageState = {
   loginMode: { mode: LOGIN },
   signUpForm: { email: "", name: "", password: "", passwordCheck: "" },
+  signInForm: { email: "", password: "" },
 };
 
 export const loginPageModeReducer = (
@@ -64,6 +75,18 @@ export const signUpValuesReducer = (
 ) => {
   switch (action.type) {
     case SIGN_UP_FORM_VALUES:
+      return action.values;
+    default:
+      return state;
+  }
+};
+
+export const signInValuesReducer = (
+  state = initialState.signInForm,
+  action: { type: string; values: SignInForm }
+) => {
+  switch (action.type) {
+    case SIGN_IN_FORM_VALUES:
       return action.values;
     default:
       return state;

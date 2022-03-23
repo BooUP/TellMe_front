@@ -3,12 +3,14 @@ import {
   loginPageModeReducer,
   requestStateReducer,
   signUpValuesReducer,
+  signInValuesReducer,
 } from "./login";
 
 const rootReducer = combineReducers({
   loginPageModeReducer,
   requestStateReducer,
   signUpValuesReducer,
+  signInValuesReducer,
 });
 
 export default rootReducer;

@@ -1,20 +1,22 @@
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { requestSignIn } from "../../api";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
-import { isError, isloading, isSuccess } from "../../store/actions/login";
+import {
+  isError,
+  isloading,
+  isSuccess,
+  setSignInFormValues,
+} from "../../store/actions/login";
+import { RootState } from "../../store/reducers";
 import { CheckRegexPattern } from "../../utils/login";
 
 export default function Login() {
   const dispatch = useDispatch();
   const router = useRouter();
-
-  const [values, setValues] = useState<any>({
-    email: "",
-    password: "",
-  });
+  const values = useSelector((state: RootState) => state.signInValuesReducer);
 
   const [errors, setErrors] = useState<any>({
     email: "",
@@ -70,7 +72,7 @@ export default function Login() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
+    dispatch(setSignInFormValues({ ...values, [name]: value }));
     setErrors({ email: "", name: "", password: "" });
   };
 
