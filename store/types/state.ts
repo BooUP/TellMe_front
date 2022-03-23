@@ -7,6 +7,7 @@ export interface LoginPageState {
     mode: string;
   };
   signUpForm: SignUpForm;
+  signInForm: SignInForm;
 }
 
 export interface SignUpForm {

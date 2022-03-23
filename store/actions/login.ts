@@ -1,12 +1,12 @@
-import { SignUpForm } from "../types/state";
+import { SignInForm, SignUpForm } from "../types/state";
 import {
   ERROR,
   LOADING,
   LOGIN,
-  REQUEST_SIGN_UP,
   SIGN_UP,
   SUCCESS,
   SIGN_UP_FORM_VALUES,
+  SIGN_IN_FORM_VALUES,
 } from "./actionTypes";
 
 export const moveLogin = () => {
@@ -20,11 +20,6 @@ export const moveSignUp = () => {
     type: SIGN_UP,
   };
 };
-
-export const signUp = (signUpForm: SignUpForm) => ({
-  type: REQUEST_SIGN_UP,
-  payload: signUpForm,
-});
 
 export const isloading = () => ({
   type: LOADING,
@@ -43,5 +38,10 @@ export const isError = (error: any) => ({
 
 export const setSignUpFormValues = (values: SignUpForm) => ({
   type: SIGN_UP_FORM_VALUES,
+  values,
+});
+
+export const setSignInFormValues = (values: SignInForm) => ({
+  type: SIGN_IN_FORM_VALUES,
   values,
 });
