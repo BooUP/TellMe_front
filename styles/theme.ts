@@ -9,5 +9,6 @@ export const theme: DefaultTheme = {
     light_orange: "#ffc288",
     beige: "#fcecdd",
     black: "#000",
+    white: "#fff",
   },
 };

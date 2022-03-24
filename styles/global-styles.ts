@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   input[type='text']:focus,
   input[type='password']:focus,
   input[type='date']:focus {border-color: #ff6701}
-  select {display:inline-block;width:100%;height:48px;background:url('/images/button/btn_select.png') no-repeat center right 21px / 13px 8px #1A1A1A;border:none;color:#fff;font-size:14px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto; -webkit-appearance: none;-moz-appearance: none;}
+  select {display:inline-block;width:100%;height:48px;padding:0 30px 0 15px;background:url("images/btn_arrow_bottom.png") no-repeat center right / 40px 25px; color:#333;font-size:14px;vertical-align:middle; border:1px solid #000;outline: 0;border-radius:10px;-moz-user-select:auto;-webkit-user-select:auto;-ms-user-select:auto;user-select:auto; -webkit-appearance: none;-moz-appearance: none;}
   textarea {display:inline-block;vertical-align:middle;width:100%;padding:8px 8px; border:solid 1px #cccccc;background-color:#fff;color:#333;outline:none;font-size:18px;}
   input[type='file'],
   input[type='image'],

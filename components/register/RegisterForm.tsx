@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import NoData from "../shared/NoData";
 import SubTitieBox from "../shared/title/SubTitieBox";
 import CardForm from "./CardForm";
+import CardSurveyForm from "./CardSurveyForm";
 
 export default function RegisterForm() {
   return (
@@ -36,6 +38,7 @@ export default function RegisterForm() {
           },
         ]}
       />
+      <NoData message="기준 항목을 추가하세요." />
       <CardForm />
 
       <SubTitieBox
@@ -48,7 +51,8 @@ export default function RegisterForm() {
           },
         ]}
       />
-      <NoData>설문 항목을 추가하세요.</NoData>
+      <NoData message="설문 항목을 추가하세요." />
+      <CardSurveyForm />
     </Form>
   );
 }
@@ -95,13 +99,4 @@ const DatePicker = styled.div`
   }
   & input[type="date"] {
   }
-`;
-
-const NoData = styled.div`
-  margin-top: 10px;
-  padding: 30px 0;
-  background: #fff;
-  border-radius: 15px;
-  font-size: 18px;
-  text-align: center;
 `;

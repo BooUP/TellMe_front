@@ -45,7 +45,8 @@ const Button = styled.button`
   width: 120px;
   height: 40px;
   border-radius: 25px;
-  background: ${COLOR.CREAM_ORANGE};
+  background: ${COLOR.DACK_ORANGE};
+  border: 1px solid #000;
   font-size: 15px;
   color: #fff;
   font-weight: 700;
