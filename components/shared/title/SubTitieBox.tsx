@@ -30,8 +30,9 @@ export default function SubTitleBox({ title, noticeText, buttonInfo }: Props) {
               onClick={item.onClick}
               value={item.text}
               key={item.text}
-              color="dack_orange"
-              borderColor="dack_orange"
+              color="white"
+              borderColor="black"
+              backgroundColor="cream_orange"
             />
           ))}
       </ButtonArea>
@@ -95,7 +96,7 @@ const ToolTipBox = styled.span`
 const Icon = styled.i`
   display: inline-block;
   overflow: hidden;
-  width: 17px;
-  height: 17px;
-  background: url("icons.png") no-repeat -130px -184px / 300px;
+  width: 20px;
+  height: 20px;
+  background: url("images/icon_question.png") no-repeat center / 100%;
 `;

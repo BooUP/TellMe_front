@@ -1,77 +1,86 @@
 import styled from "styled-components";
 import IconButton from "../shared/button/IconButton";
 
-export default function OptionForm() {
+export default function OptionCheckBox() {
   return (
     <>
-      <Radio>
-        <input type="radio" name="radio" id="r1" readOnly disabled checked />
-        <label htmlFor="r1">
-          <input type="text" defaultValue="10대" />
+      <CheckBox>
+        <input
+          type="checkbox"
+          name="check"
+          id="check1"
+          readOnly
+          disabled
+          checked
+        />
+        <label htmlFor="check1">
+          <input type="text" defaultValue="다중 선택항목 1" />
           <MinusButton>
             <IconButton iconType="minus" onClick={() => {}} />
           </MinusButton>
         </label>
-      </Radio>
-      <Radio>
-        <input type="radio" name="radio" id="r2" readOnly disabled checked />
-        <label htmlFor="r2">
-          <input type="text" defaultValue="20대" />
+      </CheckBox>
+      <CheckBox>
+        <input
+          type="checkbox"
+          name="check"
+          id="check2"
+          readOnly
+          disabled
+          checked
+        />
+        <label htmlFor="check2">
+          <input type="text" defaultValue="다중 선택항목 1" />
           <MinusButton>
             <IconButton iconType="minus" onClick={() => {}} />
           </MinusButton>
         </label>
-      </Radio>
-      <Radio>
-        <input type="radio" readOnly disabled checked />
-        <label htmlFor="r-add">
+      </CheckBox>
+      <CheckBox>
+        <input type="checkbox" readOnly disabled checked />
+        <label htmlFor="add">
           <input
             type="text"
+            id="add"
             defaultValue="옵션추가"
             className="add"
-            id="r-add"
             readOnly
             disabled
           />
         </label>
-      </Radio>
+      </CheckBox>
     </>
   );
 }
 
-const Radio = styled.div`
+const CheckBox = styled.div`
   position: relative;
   margin-top: 15px;
-  & input[type="radio"] + label::before {
+  & input[type="checkbox"] + label::before {
     content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
     margin-right: 10px;
-    border-radius: 50%;
+    border-radius: 2px;
     border: 1px solid #000;
     vertical-align: middle;
   }
-  & input[type="radio"] + label::after {
+  & input[type="checkbox"] + label::after {
     content: "";
     display: inline-block;
     position: absolute;
-    top: 10px;
-    left: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    top: 5px;
+    left: 0;
+    width: 20px;
+    height: 20px;
   }
-  & input[type="radio"]:checked + label::before {
-    background: rgb(64, 218, 254);
+  & input[type="checkbox"]:checked + label::after {
+    background: url("images/icon_check_on.png") no-repeat center / 100%;
   }
-  & input[type="radio"]:checked + label::after {
-    border: 1px solid #000;
-    background: rgb(253, 199, 73);
-  }
-  & input[type="radio"]:disabled + label::before,
-  & input[type="radio"]:disabled + label::after {
-    opacity: 0.3;
+  & input[type="checkbox"]:disabled + label::after,
+  & input[type="checkbox"]:disabled + label::before {
+    opacity: 0.2;
   }
   & input[type="text"] {
     width: calc(100% - 200px);
