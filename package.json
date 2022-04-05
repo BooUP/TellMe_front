@@ -6,7 +6,7 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "build": "next build",
     "export": "next export"
   },
