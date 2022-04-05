@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { prefix } from "../config";
 import { COLOR } from "../constants/themes";
 
 export default function Header() {
@@ -9,7 +8,7 @@ export default function Header() {
       <InnerHeader>
         <Link href="/login">
           <LogoBox>
-            <LogoImage src={`${prefix}/images/logo.png`} alt="텔미 로고" />
+            <LogoImage src={`images/logo.png`} alt="텔미 로고" />
             TELL ME
           </LogoBox>
         </Link>
