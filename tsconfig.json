@@ -1,12 +1,5 @@
 {
   "compilerOptions": {
-    // "baseUrl": "/TellMe_front/",
-    // "paths": {
-    //   "components/*": ["components/*"],
-    //   "config/*": ["config/*"],
-    //   "pages/*": ["pages/*"],
-    //   "styles/*": ["styles/*"]
-    // },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
