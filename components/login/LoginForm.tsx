@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { requestSignIn } from "../../api";
-import { prefix } from "../../config";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/patterns";
 import {
   isError,
@@ -80,7 +79,7 @@ export default function Login() {
   return (
     <FormArea>
       <LogoBox>
-        <img src={`${prefix}/images/logo.png`} alt="텔미로고" />
+        <img src={`images/logo.png`} alt="텔미로고" />
       </LogoBox>
       <Form onSubmit={handleSubmit}>
         <InputBox>

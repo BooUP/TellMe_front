@@ -6,10 +6,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  assetPrefix:
-    process.env.NODE_ENV === "production"
-      ? "https://booup.github.io/TellMe_front"
-      : "",
+  basePath: process.env.NODE_ENV === "production" ? "/TellMe_front" : "",
+  assetPrefix: process.env.NODE_ENV === "production" ? "/TellMe_front/" : "",
   async rewrites() {
     return [
       {

@@ -47,7 +47,7 @@ const IconCheck = styled.i`
   display: block;
   width: 200px;
   height: 215px;
-  background: url("/images/icon_check.png") no-repeat center / 100%;
+  background: url("images/icon_check.png") no-repeat center / 100%;
   margin-right: 50px;
 `;
 
