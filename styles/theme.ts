@@ -1,13 +1,14 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
-  breakPoint: '769px',
+  breakPoint: "769px",
 
   colors: {
-    black: '#1e1f1d',
-    yellow: '#edb83c',
-    orange: '#eb7952',
-    gray: '#6e6e6e',
-    gray_background: '#f5f5f5',
+    dack_orange: "#ff6701",
+    cream_orange: "#fea82f",
+    light_orange: "#ffc288",
+    beige: "#fcecdd",
+    black: "#000",
+    white: "#fff",
   },
 };
