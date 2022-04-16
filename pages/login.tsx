@@ -33,7 +33,7 @@ const TabContent = styled.div`
   position: relative;
   width: 40%;
   height: 100%;
-  background-image: url("/images/bg_login.jpeg");
+  background-image: url("images/bg_login.jpeg");
   background-size: cover;
   & ::after {
     content: "";
